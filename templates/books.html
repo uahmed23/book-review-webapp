@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+books
+{% endblock %}
+
+{% block body %}
+<br />
+<br />
+<br />
+<h1>Book Matches: {{count}} </h1>
+<br />
+<br />
+
+
+<ul>
+    {% for book in books %}
+    <li>
+        <a href="{{ url_for('review', isbn=book.isbn) }}">
+            {{book.title}} by {{book.author}}, {{book.year}}
+        </a>
+    </li>
+    {% else %}
+    <li>No Books found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

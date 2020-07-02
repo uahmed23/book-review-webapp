@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+IBDB: home
+{% endblock %}
+
+{% block body %}
+
+<a href="{{ url_for('index') }}">
+    logout {{username}}
+</a>
+<br />
+<br />
+<br />
+<!-- <h1>Welcome, {{username}}!</h1> -->
+<br />
+<br />
+<br />
+<h4>Search for a Book</h4>
+<br />
+<form action="{{ url_for('search') }}" method="post">
+
+    <div class="row">
+        <div class="form-group col-lg-3 col-sm-6">
+            <select placeholder="Username" class="form-control" name="search_type">
+                <option value="title">Search by Title</option>
+                <option value="author">Search by Author</option>
+                <option value="ISBN">Search by ISBN</option>
+            </select>
+        </div>
+        <div class="form-group col-lg-6 col-sm-6">
+            <input class="form-control" name="search_query" placeholder="Search book database">
+        </div>
+        <div class="form-group col-lg-3 col-sm-12">
+            <button class="btn btn-primary btn-block">Search</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

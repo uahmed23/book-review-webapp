@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Internet Books Database
+{% endblock %}
+
+{% block body %}
+<br />
+<h1>INTERNET BOOK DATABASE</h1>
+<br />
+{% for alert in alerts %}
+<div class="alert alert-primary" role="alert">
+    {{alert}}
+</div>
+{% endfor %}
+<br />
+<h2>LOGIN</h2>
+<form action="{{ url_for('login') }}" method="post">
+
+    <div class="form-group">
+        <input class="form-control" name="username" placeholder="Username">
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Login</button>
+    </div>
+
+</form>
+<h3>or</h3>
+<h2>REGISTER</h2>
+<form action="{{ url_for('register') }}" method="post">
+
+    <div class="form-group">
+        <input class="form-control" name="username" placeholder="Username">
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+    </div>
+
+</form>
+{% endblock %}
